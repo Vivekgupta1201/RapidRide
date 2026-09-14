@@ -1,0 +1,21 @@
+# Maven
+**/target/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment / secrets
+.env
+application-local.properties
+application-secret.properties
+
+# Logs
+*.log
