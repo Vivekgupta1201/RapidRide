@@ -1,4 +1,3 @@
-Copy everything below directly into your `README.md`:
 
 ````markdown
 # 🚗 RapidRide
