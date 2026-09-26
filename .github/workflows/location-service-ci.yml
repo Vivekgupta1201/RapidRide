@@ -1,0 +1,41 @@
+name: RapidRide Location Service CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      redis:
+        image: redis:7
+        ports:
+          - 6379:6379
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build and test
+        working-directory: location_service
+        env:
+          REDIS_HOST: localhost
+          REDIS_PORT: 6379
+        run: ./mvnw clean verify
+
+      - name: Build Docker image
+        working-directory: location_service
+        run: docker build -t rapidride-location-service .

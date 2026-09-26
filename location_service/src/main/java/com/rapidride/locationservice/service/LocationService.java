@@ -4,12 +4,12 @@ package com.rapidride.locationservice.service;
 
 import org.springframework.data.redis.connection.RedisGeoCommands;
 import org.springframework.data.redis.connection.RedisGeoCommands.GeoLocation;
-import org.springframework.data.redis.core.GeoOperations;
+
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.data.geo.Point;
 
-import java.security.PublicKey;
+
 import java.util.ArrayList;
 import java.util.List;
 
